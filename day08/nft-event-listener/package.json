@@ -1,0 +1,29 @@
+{
+  "name": "nft-event-listener",
+  "version": "1.0.0",
+  "description": "NFT Market Event Listener - 监听NFT市场合约事件",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nft",
+    "blockchain",
+    "ethereum",
+    "event-listener",
+    "web3"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "viem": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "winston": "^3.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}
