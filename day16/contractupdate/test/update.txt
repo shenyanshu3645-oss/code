@@ -1,0 +1,125 @@
+(base) web3@192 contractupdate % forge script script/UpgradeMarketScript.s.sol:UpgradeViaProxyAdminScript \
+    --rpc-url $SEPOLIA_RPC_URL \
+    --private-key $PRIVATE_KEY \
+    --broadcast \
+    --verify \
+    -vvvv
+[⠊] Compiling...
+No files changed, compilation skipped
+Traces:
+  [2947932] UpgradeViaProxyAdminScript::run()
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x2B472592c4A67f890E823eb741942fce2ae474C1
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] console::log("Deployer:", 0x2B472592c4A67f890E823eb741942fce2ae474C1) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2579] 0xB4c7C662e2EF004E9F02c8083b50273A2DD19a9F::getAdmin() [staticcall]
+    │   └─ ← [Return] 0x74fb7760A2CF4db68E5d7A15B8Fb52b2CD5dC16d
+    ├─ [2601] 0xB4c7C662e2EF004E9F02c8083b50273A2DD19a9F::getImplementation() [staticcall]
+    │   └─ ← [Return] 0xBbe9F3085A6A67b2cf47989cB5203c901E792Fe5
+    ├─ [0] console::log("ProxyAdmin address:", 0x74fb7760A2CF4db68E5d7A15B8Fb52b2CD5dC16d) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2514] 0x74fb7760A2CF4db68E5d7A15B8Fb52b2CD5dC16d::owner() [staticcall]
+    │   └─ ← [Return] 0x2B472592c4A67f890E823eb741942fce2ae474C1
+    ├─ [0] console::log("ProxyAdmin owner:", 0x2B472592c4A67f890E823eb741942fce2ae474C1) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Is deployer the ProxyAdmin owner?", true) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2872219] → new UpgradeableNFTMarketNew@0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 14214 bytes of code
+    ├─ [0] console::log("New implementation:", UpgradeableNFTMarketNew: [0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Upgrading via ProxyAdmin...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [8544] 0x74fb7760A2CF4db68E5d7A15B8Fb52b2CD5dC16d::upgradeAndCall(0xB4c7C662e2EF004E9F02c8083b50273A2DD19a9F, UpgradeableNFTMarketNew: [0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A], 0x)
+    │   ├─ [6001] 0xB4c7C662e2EF004E9F02c8083b50273A2DD19a9F::upgradeToAndCall(UpgradeableNFTMarketNew: [0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A], 0x)
+    │   │   ├─ emit Upgraded(implementation: UpgradeableNFTMarketNew: [0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A])
+    │   │   └─ ← [Stop]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Upgrade via ProxyAdmin successful!") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    └─ ← [Stop]
+
+
+Script ran successfully.
+
+== Logs ==
+  Deployer: 0x2B472592c4A67f890E823eb741942fce2ae474C1
+  ProxyAdmin address: 0x74fb7760A2CF4db68E5d7A15B8Fb52b2CD5dC16d
+  ProxyAdmin owner: 0x2B472592c4A67f890E823eb741942fce2ae474C1
+  Is deployer the ProxyAdmin owner? true
+  New implementation: 0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A
+  Upgrading via ProxyAdmin...
+  Upgrade via ProxyAdmin successful!
+
+## Setting up 1 EVM.
+==========================
+Simulated On-chain Traces:
+
+  [2872219] → new UpgradeableNFTMarketNew@0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A
+    ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    └─ ← [Return] 14214 bytes of code
+
+  [17544] 0x74fb7760A2CF4db68E5d7A15B8Fb52b2CD5dC16d::upgradeAndCall(0xB4c7C662e2EF004E9F02c8083b50273A2DD19a9F, UpgradeableNFTMarketNew: [0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A], 0x)
+    ├─ [10501] 0xB4c7C662e2EF004E9F02c8083b50273A2DD19a9F::upgradeToAndCall(UpgradeableNFTMarketNew: [0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A], 0x)
+    │   ├─ emit Upgraded(implementation: UpgradeableNFTMarketNew: [0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A])
+    │   └─ ← [Stop]
+    └─ ← [Stop]
+
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 0.001000024 gwei
+
+Estimated total gas used for script: 4176574
+
+Estimated amount required: 0.000004176674237776 ETH
+
+==========================
+
+##### sepolia
+✅  [Success] Hash: 0xbceda1b23038007856df906eaa499036f549e6f451f41a1ce613203ba56b71eb
+Contract Address: 0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A
+Block: 9460294
+Paid: 0.000003170709877425 ETH (3170675 gas * 0.001000011 gwei)
+
+
+##### sepolia
+✅  [Success] Hash: 0x674ff42e455e31819c9cfcbd4548e522fa2b828a4a3acb91e0c2a951569996b2
+Block: 9460296
+Paid: 0.0000000396004356 ETH (39600 gas * 0.001000011 gwei)
+
+✅ Sequence #1 on sepolia | Total Paid: 0.000003210310313025 ETH (3210275 gas * avg 0.001000011 gwei)
+                                                                                                                      
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+##
+Start verification for (1) contracts
+Start verifying contract `0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A` deployed on sepolia
+EVM version: prague
+Compiler version: 0.8.30
+
+Submitting verification for [src/UpgradeableNFTMarketNew.sol:UpgradeableNFTMarketNew] 0xAF8Ae2cE2439EDFa685631F16E5c6078c8B3343A.
+Submitted contract for verification:
+        Response: `OK`
+        GUID: `uvclbuhkua7f1epfkv1zdtkwnvt6didf6jtu3hvchjhmvtjv5i`
+        URL: https://sepolia.etherscan.io/address/0xaf8ae2ce2439edfa685631f16e5c6078c8b3343a
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Warning: Verification is still pending...; waiting 15 seconds before trying again (7 tries remaining)
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+All (1) contracts were verified!

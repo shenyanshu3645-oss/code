@@ -1,0 +1,25 @@
+{
+  "name": "contractupdate",
+  "version": "1.0.0",
+  "description": "Smart contract project with upgradeable NFT and NFT Market",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "interact:nft": "node script/interact-with-nft-proxy.js"
+  },
+  "keywords": [
+    "solidity",
+    "smart-contracts",
+    "ethereum",
+    "foundry",
+    "openzeppelin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "hardhat": "^2.26.3"
+  },
+  "dependencies": {
+    "ethers": "^6.15.0"
+  }
+}
